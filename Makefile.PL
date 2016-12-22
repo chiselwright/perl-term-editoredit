@@ -24,13 +24,14 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'Term::EditorEdit',
   'PREREQ_PM' => {
-    'Any::Moose' => '0',
+    'Moo' => '0',
     'File::Temp' => '0',
     'IO::File' => '0',
+    'Scalar::Util' => 0,
     'Text::Clip' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.0016',
+  'VERSION' => '0.0017',
   'test' => {
     'TESTS' => 't/*.t'
   }

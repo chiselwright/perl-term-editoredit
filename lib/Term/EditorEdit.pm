@@ -10,9 +10,10 @@ BEGIN {
 use strict;
 use warnings;
 
-use Any::Moose;
+use Moo;
 use Carp;
 use File::Temp;
+use Scalar::Util 'blessed';
 use Term::EditorEdit::Edit;
 
 sub EDITOR {

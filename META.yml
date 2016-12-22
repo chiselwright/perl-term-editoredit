@@ -14,9 +14,9 @@ meta-spec:
   version: 1.4
 name: Term-EditorEdit
 requires:
-  Any::Moose: 0
+  Moo: 0
   File::Temp: 0
   IO::File: 0
   Text::Clip: 0
   Try::Tiny: 0
-version: 0.0016
+version: 0.0017

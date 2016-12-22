@@ -3,7 +3,9 @@ package Term::EditorEdit::Edit;
 use strict;
 use warnings;
 
-use Any::Moose;
+use Moo;
+use MooX::Types::MooseLike::Base ':all';
+use Scalar::Util 'blessed';
 use Text::Clip;
 use Try::Tiny;
 use IO::File;
@@ -13,18 +15,18 @@ our $RETRY = "__Term_EditorEdit_retry__\n";
 our $Test_edit;
 
 #has editor => qw/ is ro required 1 weak_ref 1 /;
-has process => qw/ is ro isa Maybe[CodeRef] /;
+has process => ( is => 'ro', isa => Maybe[CodeRef] );
 has separator => qw/ is rw /;
 has file => qw/ is ro required 1 /;
 
-has document => qw/ is rw isa Str required 1 /;
-has $_ => reader => $_, writer => "_$_", isa => 'Str' for qw/ initial_document /;
+has document => ( is => 'rw', isa => Str, required => 1 );
+has $_ => reader => $_, writer => "_$_", isa => Str, is => 'rw' for qw/ initial_document /;
 
-has preamble => qw/ is rw isa Maybe[Str] /;
-has $_ => reader => $_, writer => "_$_", isa => 'Maybe[Str]' for qw/ initial_preamble /;
+has preamble => ( is => 'rw', isa => Maybe[Str] );
+has $_ => reader => $_, writer => "_$_", isa => Maybe[Str], is => 'rw' for qw/ initial_preamble /;
 
-has content => qw/ is rw isa Str /;
-has $_ => reader => $_, writer => "_$_", isa => 'Str' for qw/ initial_content /;
+has content => ( is => 'rw', isa => Str );
+has $_ => reader => $_, writer => "_$_", isa => Str, is => 'rw' for qw/ initial_content /;
 
 sub BUILD {
     my $self = shift;

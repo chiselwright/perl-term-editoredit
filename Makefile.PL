@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
   'NAME' => 'Term::EditorEdit',
   'PREREQ_PM' => {
     'Moo' => '0',
+    'MooX::Types::MooseLike::Base' => 0,
     'File::Temp' => '0',
     'IO::File' => '0',
     'Scalar::Util' => 0,
